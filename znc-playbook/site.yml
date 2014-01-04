@@ -11,7 +11,7 @@
     shell: cd /tmp/docker-images/docker-znc ; docker build -t docker-znc .
 
   - name:  run docker container
-    shell: docker run -d -u irc -p 3030:6667 docker-znc zncrun {{ znc_user }} {{ znc_password}}
+    shell: docker run -d -u irc -p 3030:6667 docker-znc zncrun {{ znc_user }} {{ znc_password }}
     ignore_errors: True
 
 
