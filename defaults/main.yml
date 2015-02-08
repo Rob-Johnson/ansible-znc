@@ -1,0 +1,7 @@
+---
+
+build_dir: /tmp/docker-images/znc
+image_tag: znc
+container_name: znc
+znc_user: user
+znc_password: password

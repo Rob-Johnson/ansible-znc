@@ -1,23 +1,26 @@
-##ansible-znc
+# ansible-znc
 
-Provision znc running in docker container
+An ansible role used to run a ZNC docker container.
 
-### Requirements
-You need a group 'znc' in your $ANSIBLE_HOSTS, aswell as group|host variables docker_znc_repo, znc_user, znc_password
+## Vars
 
-```bash
-$ cat ansible_hosts
-```
-```yaml
-[znc]
-znc znc_user=foo znc_password=baz docker_znc_repo=https://github.com/Rob-Johnson/docker-znc.git
-```
+Defaults are provided for all vars in `defaults/main.yml`
+
+- `znc_user` Username for ZNC
+- `znc_password` Password for ZNC
+- `znc_docker_repo` Git repo from which your ZNC image can be built. Example (here)[https://github.com/shykes/docker-znc] and (here)[https://github.com/Rob-Johnson/docker-znc]
+- `build_dir`: /tmp/docker-images/znc - The directory in which to build the image
+- `image_tag`: znc - the tag with which to build the container
+- `container_name`: znc - the name with which to run the container
 
 ### To Run
-```bash
-$ ansible-playbook znc-playbook/site.yml
+
+- Include the ansible role in your playbook.
+
+```yaml
+
+- hosts: all
+  sudo: True
+  roles:
+    - znc
 ```
-
-
-
-
